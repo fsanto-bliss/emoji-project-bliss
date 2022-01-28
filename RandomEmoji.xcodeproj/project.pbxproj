@@ -8,14 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		073B47AE27998AF40014A772 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073B47AD27998AF40014A772 /* AppDelegate.swift */; };
-		073B47B027998AF40014A772 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073B47AF27998AF40014A772 /* SceneDelegate.swift */; };
-		073B47B227998AF40014A772 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073B47B127998AF40014A772 /* ViewController.swift */; };
-		073B47B527998AF40014A772 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 073B47B327998AF40014A772 /* Main.storyboard */; };
+		073B47B227998AF40014A772 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073B47B127998AF40014A772 /* LandingViewController.swift */; };
 		073B47B727998AF60014A772 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 073B47B627998AF60014A772 /* Assets.xcassets */; };
 		073B47BA27998AF60014A772 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 073B47B827998AF60014A772 /* LaunchScreen.storyboard */; };
 		073B47C527998AF60014A772 /* RandomEmojiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073B47C427998AF60014A772 /* RandomEmojiTests.swift */; };
 		073B47CF27998AF60014A772 /* RandomEmojiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073B47CE27998AF60014A772 /* RandomEmojiUITests.swift */; };
 		073B47D127998AF60014A772 /* RandomEmojiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073B47D027998AF60014A772 /* RandomEmojiUITestsLaunchTests.swift */; };
+		073B47E127998F960014A772 /* EmojiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073B47E027998F960014A772 /* EmojiManager.swift */; };
+		073B47E6279994630014A772 /* Extension_UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073B47E5279994630014A772 /* Extension_UIImage.swift */; };
+		073B47EA27999D020014A772 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073B47E927999D020014A772 /* UserManager.swift */; };
+		073B47EC2799BABF0014A772 /* RepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073B47EB2799BABF0014A772 /* RepositoryManager.swift */; };
+		073B48092799C75A0014A772 /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073B48082799C75A0014A772 /* RepositoriesViewController.swift */; };
+		073B480B2799C7AD0014A772 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073B480A2799C7AD0014A772 /* AvatarViewController.swift */; };
+		073B480D2799C7D10014A772 /* EmojiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073B480C2799C7D10014A772 /* EmojiViewController.swift */; };
+		073B480F2799CDA70014A772 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073B480E2799CDA70014A772 /* Coordinator.swift */; };
+		073B48112799CE910014A772 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073B48102799CE910014A772 /* CoordinatorProtocol.swift */; };
+		07D43126279AF467005CA95D /* RepositoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07D43125279AF467005CA95D /* RepositoryVC.xib */; };
+		07D43128279AF90D005CA95D /* LandingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07D43127279AF90D005CA95D /* LandingVC.xib */; };
+		07D4312A279AF93F005CA95D /* EmojiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07D43129279AF93F005CA95D /* EmojiVC.xib */; };
+		07D4312C279AF95D005CA95D /* AvatarVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07D4312B279AF95D005CA95D /* AvatarVC.xib */; };
+		07D4312E279B207F005CA95D /* Extension_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D4312D279B207F005CA95D /* Extension_VC.swift */; };
+		07D4313027A01435005CA95D /* EmojiFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D4312F27A01435005CA95D /* EmojiFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,9 +51,7 @@
 /* Begin PBXFileReference section */
 		073B47AA27998AF40014A772 /* RandomEmoji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomEmoji.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		073B47AD27998AF40014A772 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		073B47AF27998AF40014A772 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		073B47B127998AF40014A772 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		073B47B427998AF40014A772 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		073B47B127998AF40014A772 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		073B47B627998AF60014A772 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		073B47B927998AF60014A772 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		073B47BB27998AF60014A772 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +60,21 @@
 		073B47CA27998AF60014A772 /* RandomEmojiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RandomEmojiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		073B47CE27998AF60014A772 /* RandomEmojiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomEmojiUITests.swift; sourceTree = "<group>"; };
 		073B47D027998AF60014A772 /* RandomEmojiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomEmojiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		073B47E027998F960014A772 /* EmojiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiManager.swift; sourceTree = "<group>"; };
+		073B47E5279994630014A772 /* Extension_UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UIImage.swift; sourceTree = "<group>"; };
+		073B47E927999D020014A772 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		073B47EB2799BABF0014A772 /* RepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryManager.swift; sourceTree = "<group>"; };
+		073B48082799C75A0014A772 /* RepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
+		073B480A2799C7AD0014A772 /* AvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarViewController.swift; sourceTree = "<group>"; };
+		073B480C2799C7D10014A772 /* EmojiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiViewController.swift; sourceTree = "<group>"; };
+		073B480E2799CDA70014A772 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		073B48102799CE910014A772 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		07D43125279AF467005CA95D /* RepositoryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryVC.xib; sourceTree = "<group>"; };
+		07D43127279AF90D005CA95D /* LandingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LandingVC.xib; sourceTree = "<group>"; };
+		07D43129279AF93F005CA95D /* EmojiVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmojiVC.xib; sourceTree = "<group>"; };
+		07D4312B279AF95D005CA95D /* AvatarVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarVC.xib; sourceTree = "<group>"; };
+		07D4312D279B207F005CA95D /* Extension_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_VC.swift; sourceTree = "<group>"; };
+		07D4312F27A01435005CA95D /* EmojiFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,11 +126,12 @@
 			isa = PBXGroup;
 			children = (
 				073B47AD27998AF40014A772 /* AppDelegate.swift */,
-				073B47AF27998AF40014A772 /* SceneDelegate.swift */,
-				073B47B127998AF40014A772 /* ViewController.swift */,
-				073B47B327998AF40014A772 /* Main.storyboard */,
+				073B47E42799944C0014A772 /* Extension */,
+				073B47DD27998B980014A772 /* Model */,
+				073B47F12799BFDC0014A772 /* ViewModel */,
+				073B47EE2799BF2C0014A772 /* View Controller */,
+				073B47ED2799BF1C0014A772 /* View */,
 				073B47B627998AF60014A772 /* Assets.xcassets */,
-				073B47B827998AF60014A772 /* LaunchScreen.storyboard */,
 				073B47BB27998AF60014A772 /* Info.plist */,
 			);
 			path = RandomEmoji;
@@ -125,6 +152,58 @@
 				073B47D027998AF60014A772 /* RandomEmojiUITestsLaunchTests.swift */,
 			);
 			path = RandomEmojiUITests;
+			sourceTree = "<group>";
+		};
+		073B47DD27998B980014A772 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				073B47E027998F960014A772 /* EmojiManager.swift */,
+				073B47E927999D020014A772 /* UserManager.swift */,
+				073B47EB2799BABF0014A772 /* RepositoryManager.swift */,
+				07D4312F27A01435005CA95D /* EmojiFactory.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		073B47E42799944C0014A772 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				073B47E5279994630014A772 /* Extension_UIImage.swift */,
+				07D4312D279B207F005CA95D /* Extension_VC.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		073B47ED2799BF1C0014A772 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				073B47B827998AF60014A772 /* LaunchScreen.storyboard */,
+				07D43125279AF467005CA95D /* RepositoryVC.xib */,
+				07D43129279AF93F005CA95D /* EmojiVC.xib */,
+				07D4312B279AF95D005CA95D /* AvatarVC.xib */,
+				07D43127279AF90D005CA95D /* LandingVC.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		073B47EE2799BF2C0014A772 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				073B47B127998AF40014A772 /* LandingViewController.swift */,
+				073B48082799C75A0014A772 /* RepositoriesViewController.swift */,
+				073B480A2799C7AD0014A772 /* AvatarViewController.swift */,
+				073B480C2799C7D10014A772 /* EmojiViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		073B47F12799BFDC0014A772 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				073B480E2799CDA70014A772 /* Coordinator.swift */,
+				073B48102799CE910014A772 /* CoordinatorProtocol.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +312,10 @@
 			files = (
 				073B47BA27998AF60014A772 /* LaunchScreen.storyboard in Resources */,
 				073B47B727998AF60014A772 /* Assets.xcassets in Resources */,
-				073B47B527998AF40014A772 /* Main.storyboard in Resources */,
+				07D4312A279AF93F005CA95D /* EmojiVC.xib in Resources */,
+				07D43128279AF90D005CA95D /* LandingVC.xib in Resources */,
+				07D43126279AF467005CA95D /* RepositoryVC.xib in Resources */,
+				07D4312C279AF95D005CA95D /* AvatarVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +340,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				073B47B227998AF40014A772 /* ViewController.swift in Sources */,
+				073B47EC2799BABF0014A772 /* RepositoryManager.swift in Sources */,
+				073B480D2799C7D10014A772 /* EmojiViewController.swift in Sources */,
+				073B48112799CE910014A772 /* CoordinatorProtocol.swift in Sources */,
+				073B47B227998AF40014A772 /* LandingViewController.swift in Sources */,
 				073B47AE27998AF40014A772 /* AppDelegate.swift in Sources */,
-				073B47B027998AF40014A772 /* SceneDelegate.swift in Sources */,
+				073B48092799C75A0014A772 /* RepositoriesViewController.swift in Sources */,
+				073B480F2799CDA70014A772 /* Coordinator.swift in Sources */,
+				073B480B2799C7AD0014A772 /* AvatarViewController.swift in Sources */,
+				073B47E127998F960014A772 /* EmojiManager.swift in Sources */,
+				073B47EA27999D020014A772 /* UserManager.swift in Sources */,
+				07D4312E279B207F005CA95D /* Extension_VC.swift in Sources */,
+				073B47E6279994630014A772 /* Extension_UIImage.swift in Sources */,
+				07D4313027A01435005CA95D /* EmojiFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +389,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		073B47B327998AF40014A772 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				073B47B427998AF40014A772 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		073B47B827998AF60014A772 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -443,7 +527,6 @@
 				INFOPLIST_FILE = RandomEmoji/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -470,7 +553,6 @@
 				INFOPLIST_FILE = RandomEmoji/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
