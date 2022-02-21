@@ -31,13 +31,7 @@ class Coordinator: CoordinatorProtocol {
         self.navigationController = navigationController
         emojiFactory = EmojiFactory()
         
-        EmojisService().fetchEmojis(completion: { emojis in
-            self.emojiFactory.emojis = emojis
-            
-            DispatchQueue.main.async {
-                //self.collectionView.reloadData()
-            }
-        })
+
         
     }
     

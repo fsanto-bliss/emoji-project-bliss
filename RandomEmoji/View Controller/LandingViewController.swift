@@ -9,6 +9,7 @@ import UIKit
 
 class LandingViewController: UIViewController {
     var coordinator: CoordinatorProtocol?
+    private let factory = EmojiFactory()
     
     @IBOutlet weak var randomEmojiImage: UIImageView!
     @IBOutlet weak var textField: UITextField!
@@ -18,9 +19,15 @@ class LandingViewController: UIViewController {
         // Do any additional setup after loading the view.
         textField.delegate = self
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        EmojisService().fetchEmojis(completion: { emojis in
+            self.factory.emojis = emojis
+        })
+    }
+    
     @IBAction func randomEmojiButtonPressed(_ sender: Any) {
-        guard let emoji = coordinator?.randomEmoji() else { return }
+        guard let emoji = factory.randomEmoji() else { return }
         randomEmojiImage.image = emoji
     }
     
