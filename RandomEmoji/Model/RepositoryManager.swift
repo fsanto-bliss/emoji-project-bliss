@@ -9,66 +9,30 @@ import Foundation
 import CoreLocation
 import UIKit
 
-protocol RepositoryManagerDelegate {
-    func didUpdateRepository(_ repositoryManager: RepositoryManager, repository: [String])
+//MARK: - RepositoryData
+struct Repository: Decodable {
+    let fullName : String
     
-    func didFailWithError(error: Error)
-}
-
-//MARK: -  Data structs for the request
-struct RepositoriesData: Codable {
-    let repositories: [RepositoryData]
-}
-
-struct RepositoryData:Codable {
-    let full_name: String
-}
-
-//MARK: - Repository model, conjunto de nomes dos repositorios
-struct RepositoryModel {
-    let name: String
-}
-
-//MARK: - Repository manager, para tratar do request dos apis
-struct RepositoryManager {
-    let userURL = "https://api.github.com/users/apple/repos"
-    
-    var delegate: RepositoryManagerDelegate?
-    
-    func fetchRepos() {
-        performRequest(with: userURL)
+    enum CodingKeys: String, CodingKey {
+        case fullName = "full_name"
     }
+}
+
+//MARK: - RepositoryService
+class RepositoryService {
     
-    func performRequest(with urlString: String) {
-        if let url = URL(string: urlString) {
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: url) { (data, response, error) in
-                if error != nil {
-                    self.delegate?.didFailWithError(error: error!)
-                    return
-                }
-                if let safeData = data {
-                    if let repos = self.parseJSON(safeData) {
-                        self.delegate?.didUpdateRepository(self, repository: repos)
-                    }
-                }
-            }
-            task.resume()
+    // request the repository list
+    func fetchEmojis(completion: @escaping ([Repository]) -> Void) {
+        let url = URL(string: "https://api.github.com/users/apple/repos")!
+        
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let data = data else { return }
+            let decoded = try! JSONDecoder().decode([Repository].self, from: data)
+            completion(decoded)
         }
-    }
-    
-    func parseJSON(_ repositoriesData: Data) -> [String]? {
-        let decoder = JSONDecoder()
-        do {
-            let decodedData = try decoder.decode(RepositoriesData.self, from: repositoriesData)
-            let repoArray: [String] = decodedData.repositories.compactMap {
-                return $0.full_name
-            }
-            
-            return repoArray
-        } catch {
-            delegate?.didFailWithError(error: error)
-            return nil
-        }
+        
+        task.resume()
     }
 }
+
+

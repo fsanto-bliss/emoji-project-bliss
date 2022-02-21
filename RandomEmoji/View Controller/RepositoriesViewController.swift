@@ -17,10 +17,19 @@ class RepositoriesViewController: UIViewController {
         // Do any additional setup after loading the view.
         repositoriesTableView.delegate = self
         repositoriesTableView.dataSource = self
-        repositoriesTableView.reloadData()
+        
+        repositoriesTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
-    
+    override func viewDidAppear(_ animated: Bool) {
+        RepositoryService().fetchEmojis(completion: { repositories in
+            self.coordinator?.repo = repositories.compactMap { $0.fullName }
+            
+            DispatchQueue.main.sync {
+                self.repositoriesTableView.reloadData()
+            }
+        })
+    }
 }
 
 //MARK: - UITableViewDelegate

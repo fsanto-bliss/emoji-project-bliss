@@ -12,7 +12,6 @@ class EmojiFactory {
     var emojis: [Emoji] = []
     
     var emojiManager:EmojisService?
-    var repositoryManager:RepositoryManager?
     var userManager:UserManager?
     
     var repo:[String]?
@@ -57,14 +56,5 @@ extension EmojiFactory: UserManagerDelegate {
     
     func didFailWithError(error: Error) {
         print(error.localizedDescription)
-    }
-}
-
-//MARK: - RepositoryManagerDelegate
-
-extension EmojiFactory: RepositoryManagerDelegate {
-    func didUpdateRepository(_ repositoryManager: RepositoryManager, repository: [String]) {
-        self.repo = repository
-        //reload data
     }
 }

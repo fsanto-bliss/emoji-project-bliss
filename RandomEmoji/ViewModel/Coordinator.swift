@@ -23,9 +23,7 @@ class Coordinator: CoordinatorProtocol {
        emojiFactory.getAvatars() ?? []
     }
     
-    var repo: [String] {
-        emojiFactory.getRepo()
-     }
+    var repo: [String] = []
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController

@@ -16,7 +16,7 @@ protocol CoordinatorProtocol: AnyObject {
     var delegate: CoordinatorDelegate? { get set }
     var avatars:[UIImage] { get }
     var emojis:[UIImage]? { get }
-    var repo:[String] { get }
+    var repo:[String] { get set }
     
     func start()
     func goToRepository()
