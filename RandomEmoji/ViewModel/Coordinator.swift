@@ -10,7 +10,11 @@ import UIKit
 
 
 class Coordinator: CoordinatorProtocol {
-    let emojiFactory = EmojiFactory()
+    let emojiFactory: EmojiFactory
+    
+    var emojis: [UIImage]? {
+        emojiFactory.getEmoji()
+    }
     
     var delegate: CoordinatorDelegate?
     var navigationController: UINavigationController
@@ -19,26 +23,30 @@ class Coordinator: CoordinatorProtocol {
        emojiFactory.getAvatars() ?? []
     }
     
-    var emojis: [UIImage] {
-        emojiFactory.getEmoji() ?? []
-     }
-    
     var repo: [String] {
         emojiFactory.getRepo()
      }
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        emojiFactory = EmojiFactory()
+        
+        EmojisService().fetchEmojis(completion: { emojis in
+            self.emojiFactory.emojis = emojis
+            
+            DispatchQueue.main.async {
+                //self.collectionView.reloadData()
+            }
+        })
         
     }
     
     func start() {
         let vc = LandingViewController(nibName: "LandingVC", bundle: nil)
         vc.coordinator = self
-        delegate = vc
         navigationController.pushViewController(vc, animated: true)
     }
-    
+
     func randomEmoji() -> UIImage? {
         return emojiFactory.randomEmoji()
     }
@@ -49,22 +57,19 @@ class Coordinator: CoordinatorProtocol {
     
     func goToRepository() {
         let vc = RepositoriesViewController(nibName: "RepositoryVC", bundle: nil)
-        navigationController.pushViewController(vc, animated: true)
         vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
     }
     
     func goToAvatar() {
         let vc = AvatarViewController(nibName: "AvatarVC", bundle: nil)
-        navigationController.pushViewController(vc, animated: true)
         vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
     }
     
     func goToEmoji() {
         let vc = EmojiViewController(nibName: "EmojiVC", bundle: nil)
-        navigationController.pushViewController(vc, animated: true)
         vc.coordinator = self
-        vc.emojiCollectionView.reloadData()
+        navigationController.pushViewController(vc, animated: true)
     }
-    
-    
 }

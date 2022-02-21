@@ -15,8 +15,9 @@ class RepositoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        repositoriesTableView.backgroundColor = .clear
         repositoriesTableView.delegate = self
+        repositoriesTableView.dataSource = self
+        repositoriesTableView.reloadData()
     }
     
     

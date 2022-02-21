@@ -15,7 +15,7 @@ protocol CoordinatorProtocol: AnyObject {
     var navigationController: UINavigationController{ get set }
     var delegate: CoordinatorDelegate? { get set }
     var avatars:[UIImage] { get }
-    var emojis:[UIImage] { get }
+    var emojis:[UIImage]? { get }
     var repo:[String] { get }
     
     func start()

@@ -9,33 +9,27 @@ import Foundation
 import UIKit
 
 class EmojiFactory {
-    var emojiManager:EmojiManager?
-    var repositoryManager = RepositoryManager()
-    var userManager = UserManager()
+    var emojis: [Emoji] = []
+    
+    var emojiManager:EmojisService?
+    var repositoryManager:RepositoryManager?
+    var userManager:UserManager?
     
     var repo:[String]?
-    var emoji:[EmojiModel]?
     var avatar:[UIImage]?
     
     public init() {
-        repositoryManager.fetchRepos()
         
-        self.emojiManager = EmojiManager()
-        self.emojiManager?.delegate = self
-        self.emojiManager?.fetchEmoji()
-
-        repositoryManager.delegate = self
-        userManager.delegate = self
     }
     
     func randomEmoji() -> UIImage? {
-        guard let lenght = emoji?.count else { return nil }
-        let randomIndex = Int.random(in: 0..<lenght)
-        return emoji?[randomIndex].emoji
+        let randomIndex = Int.random(in: 0..<emojis.count)
+        guard let image = try? UIImage(withContentsOfUrl: URL(string: emojis[randomIndex].url)!) else { return nil }
+        return image
     }
     
     func setAvatar(name:String) {
-        userManager.fetchAvatar(user: name)
+        userManager?.fetchAvatar(user: name)
     }
     
     func getAvatars() -> [UIImage]? {
@@ -43,23 +37,13 @@ class EmojiFactory {
     }
     
     func getEmoji() -> [UIImage]? {
-        return emoji?.compactMap{$0.emoji}
+        return emojis.compactMap{
+            try? UIImage(withContentsOfUrl: URL(string: $0.url)!)
+        }
     }
     
     func getRepo() -> [String] {
         return repo ?? []
-    }
-}
-
-//MARK: - EmojiManagerDelegate
-
-extension EmojiFactory: EmojiManagerDelegate {
-    func didUpdateEmojis(_ emojiManager: EmojiManager, emoji: [EmojiModel]) {
-        self.emoji = emoji
-    }
-    
-    func didFailWithError(error: Error) {
-        print(error.localizedDescription)
     }
 }
 
@@ -68,6 +52,11 @@ extension EmojiFactory: EmojiManagerDelegate {
 extension EmojiFactory: UserManagerDelegate {
     func didUpdateUser(_ userManager: UserManager, avatar: UIImage) {
         self.avatar?.append(avatar)
+        //reload data
+    }
+    
+    func didFailWithError(error: Error) {
+        print(error.localizedDescription)
     }
 }
 
@@ -76,5 +65,6 @@ extension EmojiFactory: UserManagerDelegate {
 extension EmojiFactory: RepositoryManagerDelegate {
     func didUpdateRepository(_ repositoryManager: RepositoryManager, repository: [String]) {
         self.repo = repository
+        //reload data
     }
 }

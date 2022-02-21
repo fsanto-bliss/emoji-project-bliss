@@ -14,8 +14,10 @@ class EmojiViewController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        emojiCollectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        
         emojiCollectionView.delegate = self
+        emojiCollectionView.dataSource = self
     }
 }
 
@@ -23,18 +25,14 @@ class EmojiViewController: UIViewController  {
 
 extension EmojiViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return coordinator?.emojis.count ?? 0
+        //print(coordinator?.emojis?.count)
+        return coordinator?.emojis?.count ?? 0
     }
-    
+        
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        // get a reference to our storyboard cell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath)
-        
-        // Use the outlet in our custom class to get a reference to the UILabel in the cell
-        cell.backgroundView?.largeContentImage = coordinator?.emojis[indexPath.row]
-        
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
+        cell.imageview.image = coordinator?.emojis?[indexPath.row]
         return cell
     }
+
 }

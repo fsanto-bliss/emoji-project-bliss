@@ -27,15 +27,9 @@ extension AvatarViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        // get a reference to our storyboard cell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath)
-        
-        // Use the outlet in our custom class to get a reference to the UILabel in the cell
-        cell.backgroundView?.largeContentImage = coordinator?.avatars[indexPath.row]
-        
-        
-        return cell
+        avatarCollectionView.isPagingEnabled = true;
+        let myCell = avatarCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! CollectionViewCell
+        return myCell
     }
 }
 
