@@ -8,8 +8,11 @@
 import UIKit
 
 class RepositoriesViewController: UIViewController {
+    let PER_PAGE_VALUE = 20
+    let repoService = RepositoryService()
+    var currentCount = 1
+    
     var coordinator: CoordinatorProtocol?
-
     @IBOutlet weak var repositoriesTableView: UITableView!
     
     override func viewDidLoad() {
@@ -17,16 +20,26 @@ class RepositoriesViewController: UIViewController {
         // Do any additional setup after loading the view.
         repositoriesTableView.delegate = self
         repositoriesTableView.dataSource = self
-        
+
         repositoriesTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        RepositoryService().fetchEmojis(completion: { repositories in
-            self.coordinator?.repo = repositories.compactMap { $0.fullName }
-            
-            DispatchQueue.main.sync {
-                self.repositoriesTableView.reloadData()
+        fetchRepos()
+    }
+    
+    func fetchRepos() {
+        repoService.fetchRepository(perPage: PER_PAGE_VALUE, page: currentCount, completion: { repositories in
+            if repositories != [] {
+                DispatchQueue.main.async {
+                    if self.currentCount>1 {
+                        self.coordinator?.repo.append(contentsOf: repositories.compactMap { $0.fullName })
+                    } else {
+                        self.coordinator?.repo = repositories.compactMap { $0.fullName }
+                    }
+                    self.repositoriesTableView.reloadData()
+                    self.currentCount+=1
+                }
             }
         })
     }
@@ -39,11 +52,19 @@ extension RepositoriesViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Reuse or create a cell.
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
-        // For a standard cell, use the UITableViewCell properties.
+        let cell = repositoriesTableView.dequeueReusableCell(withIdentifier: "cell",
+                 for: indexPath)
         cell.textLabel!.text = coordinator?.repo[indexPath.row]
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
+    {
+        guard let count = coordinator?.repo.count else { return }
+        if indexPath.row == (count - 1)
+        {
+            fetchRepos()
+        }
+    }
 }
+
